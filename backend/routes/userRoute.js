@@ -1,10 +1,8 @@
 import express from "express";
-import { loginController } from'../controller/login.js';
-import { PrismaClient } from '@prisma/client'
+import * as controller from '../controller/userController';
 
-
-const prisma = new PrismaClient()
 const route = express.Router();
 
-route.post('/login',loginController);
+route.post('/login',controller.loginController);
+route.post('/register',controller.registerController);
 export default route;

@@ -1,9 +1,11 @@
 import express from "express";
-const app = express();
-import login from'./login.js'
-app.use(express.json());
+import task from './routes/taskRoute'
+import user from './routes/userRoute'
 
-app.use('/',login)
+const app = express();
+app.use(express.json());
+app.use(user)
+app.use(task)
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
