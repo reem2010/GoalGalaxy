@@ -10,6 +10,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model user {
-  id Int @id @default(autoincrement())
+model User {
+  id          String  @id @default(uuid())
+  email       String  @unique
+  name        String
+  password    String
+  Tasks Tasks[] 
+  
+}
+
+model Tasks {
+  id            String   @id @default(uuid())
+  title         String
+  describtion   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  deadline      DateTime
+  priority      Priority @default(Normal) 
+  User          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId        String
+}
+enum Priority {
+  Critical
+  High
+  Normal
+  Low
 }
