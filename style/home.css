@@ -9,7 +9,7 @@ body{
     overflow-x:hidden;
     height: 100vh;  
     background-color:rgb(11, 9, 9);
-    color: #ffffff;    
+    color: #ffffff;
 }
 header{    
     width: 100vw;
@@ -64,13 +64,14 @@ h2{
     margin-top: 15px;
     
 }
-.task{
+.task {
     width: 300px;
     min-height: 200px;
 	padding: 20px;
 	margin: 20px;
 	border-radius: 15px;
     border: 1px solid rgb(239 239 255 / 99%);
+    position: relative;
     
 }
 .con{
@@ -97,7 +98,7 @@ h2{
 .header{
     position: relative;
 }
-ul{
+.side ul{
     padding-left: 20px;
     position: relative;
 }
@@ -105,7 +106,115 @@ ul{
     position: absolute;
     right: 10px;
     cursor: pointer;
+    background-color:rgb(11, 9, 9);
+    border: 0;
+    color:  #ffffff;
 }
-li{
+.side li{
     margin-bottom: 5px;
+}
+.data{
+    margin-top: 15px;
+    list-style-type: none;
+    }
+.data li{
+    display: flex;
+    margin-bottom: 6px;
+    
+}
+.deadline, .priority{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 10px;                             
+    left: 2px;    
+    border: 0;
+    cursor: pointer;                             
+}
+.priority{
+    background-color: red;
+}
+.deadline{
+    background-image: url("../logo/alarm.jpg");
+    background-size: cover;
+}
+.newtask{
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.99);
+    border: 1px solid rgb(239 239 255 / 99%);
+    border-radius: 15px;
+    padding: 20px;        
+    opacity:1;  
+    z-index: 3;         
+    visibility:hidden;                    
+}
+.blur{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width:100vw;
+    height: 100vh; 
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.99);
+    padding: 20px;        
+    opacity:0.7;
+    z-index: 2;   
+    visibility:hidden;                    
+}
+form{
+    display: flex;
+    flex-direction: column;
+    padding:40px 20px; 
+    width: 100%;
+    height: 100%;
+    
+}
+
+.add{
+    position: fixed;   
+    right: 10px;
+    bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.99);
+    padding: 20px;
+    color: #ffffff;
+    width: 45px;
+    height: 45px;
+    border-radius: 45px;
+    font-size: xx-large;
+    padding: 0;
+    cursor: pointer;
+}
+.done{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color:rgb(11, 9, 9);
+    padding: 5px;
+    color: #ffffff;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    font-size:large;
+    cursor: pointer;
+}
+.newtask h2{
+    text-align: center;
+    margin-bottom: 0
+}
+input, textarea, select{
+    border: 1px solid rgb(239 239 255 / 99%);
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+label{
+    margin-bottom: 2px;
+} 
+.submit{
+    margin-top: 30px;
 }
