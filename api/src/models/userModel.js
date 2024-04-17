@@ -7,14 +7,16 @@ export async function createUser(userData) {
   return user;
 }
 
+export async function getUser(user_email){
+  const user = await prisma.user.findUnique({    
+    where:{
+          email: user_email
+    }
+  })
+  return user
+}
 export async function deleteUser(userEmail, userPassword) {
-  if (
-    await prisma.user.findUnique({
-      where: {
-        email: e_mail,
-      },
-    })
-  ) {
+  if (await getUser()) {
     const user = await prisma.User.delete({
       where: {
         email: userEmail,
@@ -27,13 +29,7 @@ export async function deleteUser(userEmail, userPassword) {
 }
 
 export async function updateUser(userEmail, userData) {
-  if (
-    await prisma.user.findUnique({
-      where: {
-        email: e_mail,
-      },
-    })
-  ) {
+  if (await getUser()) {
     const user = await prisma.User.update({
       where: {
         email: userEmail,
